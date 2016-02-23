@@ -89,6 +89,44 @@ public class LaunchMe {
 				}
 		
 		}
+		
 	}
+	
+	public void mondrian(Donnees[] data, int k){
+		int dim= chooseDimension(data);
+		
+	}
+	public int chooseDimension(Donnees[] data){
+		
+		int qid1min = Integer.MAX_VALUE;
+		int qid1max = Integer.MIN_VALUE;
+		int qid2min = Integer.MAX_VALUE;
+		int qid2max = Integer.MIN_VALUE;
+		
+		for (Donnees d : data){
+			if(d.getQID1() < qid1min)
+				qid1min = d.getQID1();
+			
+			if(d.getQID1() > qid1max)
+				qid1max = d.getQID1();
+			
+			if(d.getQID2() < qid2min)
+				qid2min = d.getQID2();
+			
+			if(d.getQID2() > qid2max)
+				qid2max = d.getQID2();
+		}
+		
+		int dif1= qid1max - qid1min;
+		int dif2 =qid2max - qid2min;
+		
+		if(dif1> dif2)
+			return 1;
+		else
+			return 2;
+		
+	}
+	
+	
 	
 }
