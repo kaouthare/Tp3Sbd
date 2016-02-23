@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 import java.util.UUID;
 
@@ -65,14 +69,26 @@ public class LaunchMe {
 			
 			
 			//Affichage
-			for(Donnees d : data){
+			/*for(Donnees d : data){
 				System.out.println(d.toString());
-			}
+			}*/
 			
-			
+			//Ecriture sur un fichier CSV
+			BufferedWriter bw;
+			try{
+				bw = new BufferedWriter( new FileWriter(
+					new File("./monJeuDeDonnees.csv"), false));
+				bw.append("colonne1, colonne2 \n");
+				bw.flush();
+				bw.close();
+		
+			}catch (IOException e)
+				{
+			// TODO Auto-generated catch block
+				e.printStackTrace();
+				}
 		
 		}
-		
 	}
-
+	
 }
